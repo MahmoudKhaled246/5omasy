@@ -276,30 +276,13 @@ main {
 }
 .form-group input[type="text"]:focus { border-color: var(--green2); }
 
-/* ===== STARS PICKER (half-star) ===== */
+/* ===== STARS PICKER ===== */
 .star-picker {
-  display: flex; gap: 4px;
+  display: flex; gap: 6px; font-size: 1.8rem;
   cursor: pointer;
-  touch-action: none;
-  user-select: none;
 }
-.star-wrap {
-  position: relative;
-  width: 36px; height: 36px;
-  flex-shrink: 0;
-}
-.star-wrap svg { width: 36px; height: 36px; display: block; }
-.star-half-left, .star-half-right {
-  position: absolute; top: 0; height: 100%;
-  width: 50%; cursor: pointer;
-  -webkit-tap-highlight-color: transparent;
-}
-.star-half-left  { left: 0; }
-.star-half-right { right: 0; }
-.rating-label {
-  font-size: 0.95rem; color: var(--accent);
-  font-weight: 700; align-self: center; min-width: 30px;
-}
+.star { color: rgba(255,255,255,0.2); transition: color 0.15s, transform 0.1s; }
+.star:hover, .star.active { color: var(--accent); transform: scale(1.15); }
 
 /* ===== TEAMS RESULT ===== */
 .teams-container {

@@ -169,11 +169,5 @@ function showTeams(teamA, teamB) {
 
 // ===== HELPERS =====
 function starsHtml(r) {
-  let s = "";
-  for (let i = 1; i <= 5; i++) {
-    if (r >= i)          s += `<span style="color:#f0c040">★</span>`;
-    else if (r >= i-0.5) s += `<span style="color:#f0c040;opacity:.6">⯨</span>`;
-    else                 s += `<span style="color:#333">★</span>`;
-  }
-  return s;
+  return "★".repeat(r) + "☆".repeat(5 - r);
 }
