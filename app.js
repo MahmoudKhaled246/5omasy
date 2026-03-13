@@ -56,7 +56,7 @@ function renderGrid(players) {
     div.innerHTML = `
       <div class="p-name">${p.name}</div>
       <div class="p-stars">${starsHtml(p.rating)}</div>
-      <div class="p-rating">${p.rating} / 5</div>
+      <div class="p-rating">${p.rating} ★</div>
     `;
     div.addEventListener("click", () => toggleSelect(p.id));
     grid.appendChild(div);
@@ -169,5 +169,14 @@ function showTeams(teamA, teamB) {
 
 // ===== HELPERS =====
 function starsHtml(r) {
-  return "★".repeat(r) + "☆".repeat(5 - r);
+  let s = "";
+  for (let i = 1; i <= 5; i++) {
+    if (r >= i)
+      s += `<span class="s-full">★</span>`;
+    else if (r >= i - 0.5)
+      s += `<span class="s-half">★</span>`;
+    else
+      s += `<span class="s-empty">★</span>`;
+  }
+  return `<span class="stars-wrap">${s}</span>`;
 }

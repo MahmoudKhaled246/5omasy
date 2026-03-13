@@ -447,18 +447,13 @@ main {
 .player-row .pr-stars .stars-num    { font-size: 0.8rem; color: var(--muted); }
 
 /* ===== HALF STAR DISPLAY ===== */
-.stars-wrap {
-  display: inline-flex;
-  flex-direction: row-reverse;
-  gap: 1px;
-  direction: ltr;
-}
+.stars-wrap { display: inline-flex; direction: ltr; gap: 1px; }
 .s-full  { color: var(--accent); font-size: 1.4rem; }
 .s-empty { color: #444; font-size: 1.4rem; }
 .s-half  {
   font-size: 1.4rem;
   display: inline-block;
-  background: linear-gradient(to right, #444 50%, var(--accent) 50%);
+  background: linear-gradient(to right, var(--accent) 50%, #444 50%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
