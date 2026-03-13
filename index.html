@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>⚽ خماسي الملوك</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <!-- Background -->
+  <div class="bg-field"></div>
+  <div class="noise"></div>
+
+  <!-- Header -->
+  <header>
+    <div class="logo">⚽ خماسي الملوك</div>
+    <nav>
+      <a href="index.html" class="active">🏟️ الفرق</a>
+      <a href="players.html">👥 اللاعبين</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- Player Selection -->
+    <section class="card" id="selection-section">
+      <h2>اختار اللاعبين <span class="badge" id="count-badge">0</span></h2>
+      <p class="sub">اختار من 4 لـ 10 لاعبين عشان تعمل فريقين متوازنين</p>
+
+      <div class="search-bar">
+        <input type="text" id="search-input" placeholder="🔍 ابحث عن لاعب..."/>
+      </div>
+
+      <div id="players-grid" class="players-grid">
+        <!-- players loaded here -->
+        <div class="loading">⏳ بيتحمل اللاعبين...</div>
+      </div>
+
+      <div class="actions">
+        <button id="select-all-btn" class="btn-secondary">تحديد الكل</button>
+        <button id="clear-btn" class="btn-secondary">مسح التحديد</button>
+        <button id="generate-btn" class="btn-primary" disabled>
+          ⚡ وزع الفرق
+        </button>
+      </div>
+    </section>
+
+    <!-- Teams Result -->
+    <section class="card hidden" id="teams-section">
+      <h2>🏆 الفرق الجاهزة</h2>
+
+      <div class="teams-container">
+        <div class="team" id="team-a">
+          <div class="team-header team-a-header">
+            <span>🔴 الفريق الأول</span>
+            <span class="team-score" id="score-a">0</span>
+          </div>
+          <ul id="team-a-list"></ul>
+        </div>
+
+        <div class="vs-divider">VS</div>
+
+        <div class="team" id="team-b">
+          <div class="team-header team-b-header">
+            <span>🔵 الفريق الثاني</span>
+            <span class="team-score" id="score-b">0</span>
+          </div>
+          <ul id="team-b-list"></ul>
+        </div>
+      </div>
+
+      <div class="balance-bar-wrap">
+        <span>توازن الفرق</span>
+        <div class="balance-bar">
+          <div class="balance-fill" id="balance-fill"></div>
+        </div>
+        <span id="balance-label">0%</span>
+      </div>
+
+      <div class="actions">
+        <button id="reshuffle-btn" class="btn-secondary">🔀 خلط تاني</button>
+        <button id="back-btn" class="btn-primary">← اختيار جديد</button>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Toast -->
+  <div id="toast" class="toast"></div>
+
+  <script type="module" src="firebase-config.js"></script>
+  <script type="module" src="app.js"></script>
+</body>
+</html>

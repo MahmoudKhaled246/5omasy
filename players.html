@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>👥 إدارة اللاعبين</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <div class="bg-field"></div>
+  <div class="noise"></div>
+
+  <header>
+    <div class="logo">⚽ خماسي الملوك</div>
+    <nav>
+      <a href="index.html">🏟️ الفرق</a>
+      <a href="players.html" class="active">👥 اللاعبين</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- Add Player -->
+    <section class="card">
+      <h2>➕ إضافة لاعب جديد</h2>
+      <div class="form-row">
+        <div class="form-group">
+          <label>اسم اللاعب</label>
+          <input type="text" id="new-name" placeholder="مثال: محمد صلاح"/>
+        </div>
+        <div class="form-group">
+          <label>القوة (1-5 نجوم)</label>
+          <div class="star-picker" id="new-stars">
+            <span class="star" data-val="1">★</span>
+            <span class="star" data-val="2">★</span>
+            <span class="star" data-val="3">★</span>
+            <span class="star" data-val="4">★</span>
+            <span class="star" data-val="5">★</span>
+          </div>
+          <input type="hidden" id="new-rating" value="3"/>
+        </div>
+      </div>
+      <button id="add-btn" class="btn-primary">➕ إضافة اللاعب</button>
+    </section>
+
+    <!-- Players List -->
+    <section class="card">
+      <div class="list-header">
+        <h2>قائمة اللاعبين</h2>
+        <span class="badge" id="total-badge">0 لاعب</span>
+      </div>
+
+      <div class="search-bar">
+        <input type="text" id="search-players" placeholder="🔍 ابحث..."/>
+      </div>
+
+      <div id="players-list" class="players-list">
+        <div class="loading">⏳ بيتحمل اللاعبين...</div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Edit Modal -->
+  <div id="modal" class="modal hidden">
+    <div class="modal-box">
+      <h3>✏️ تعديل بيانات اللاعب</h3>
+      <div class="form-group">
+        <label>اسم اللاعب</label>
+        <input type="text" id="edit-name"/>
+      </div>
+      <div class="form-group">
+        <label>القوة</label>
+        <div class="star-picker" id="edit-stars">
+          <span class="star" data-val="1">★</span>
+          <span class="star" data-val="2">★</span>
+          <span class="star" data-val="3">★</span>
+          <span class="star" data-val="4">★</span>
+          <span class="star" data-val="5">★</span>
+        </div>
+        <input type="hidden" id="edit-rating"/>
+        <input type="hidden" id="edit-id"/>
+      </div>
+      <div class="actions">
+        <button id="cancel-edit" class="btn-secondary">إلغاء</button>
+        <button id="save-edit" class="btn-primary">💾 حفظ</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Confirm Delete Modal -->
+  <div id="confirm-modal" class="modal hidden">
+    <div class="modal-box">
+      <h3>🗑️ حذف اللاعب</h3>
+      <p id="confirm-msg">متأكد إنك عايز تحذف اللاعب ده؟</p>
+      <div class="actions">
+        <button id="cancel-delete" class="btn-secondary">لأ</button>
+        <button id="confirm-delete" class="btn-danger">أيوه، احذف</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="toast" class="toast"></div>
+
+  <script type="module" src="firebase-config.js"></script>
+  <script type="module" src="players.js"></script>
+</body>
+</html>
